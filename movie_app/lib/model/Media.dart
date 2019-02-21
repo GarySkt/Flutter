@@ -1,3 +1,4 @@
+import 'package:movie_app/common/util.dart';
 class Media{
   int id;
   double voteAverage;
@@ -6,7 +7,11 @@ class Media{
   String backdropPath;
   String overview;
   String releaseDate;
-  List<dynamic> genereIds;
+  List<dynamic> genreIds;
+
+  String getPosterUrl() => getMediumPictureUrl(posterPath);
+  String getBackDropUrl() => getLargePictureUrl(backdropPath);
+  String getGenres() => getGenreValues(genreIds);
 
   factory Media(Map jsonMap){ //constructor de modelo factory
     return new Media.deserialize(jsonMap);
@@ -22,6 +27,6 @@ class Media{
   backdropPath = json["backdrop_path"] ?? "",
   overview = json["overview"],
   releaseDate = json["release_date"],
-  genereIds = json["genre_ids"].toList();
+  genreIds = json["genre_ids"].toList();
 
 }
