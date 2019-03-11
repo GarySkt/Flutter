@@ -42,12 +42,12 @@ class CardType extends StatelessWidget{
               buttonText: 'Credit Card',
               textColor: Colors.white,
               context: context),
-              _buildRaisedButton(
+            _buildRaisedButton(
               buttonColor: Colors.grey[100],
               buttonText: 'Debit Card',
               textColor: Colors.grey[600],
               context: context),
-              _buildRaisedButton(
+            _buildRaisedButton(
               buttonColor: Colors.grey[100],
               buttonText: 'Gift Card',
               textColor: Colors.grey[600],

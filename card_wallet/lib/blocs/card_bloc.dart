@@ -5,6 +5,7 @@ import '../helpers/card_colors.dart';
 import '../models/card_model.dart';
 import './validators.dart';
 import '../blocs/bloc_provider.dart';
+import '../blocs/card_list_bloc.dart';
 
 
 class CardBloc with Validators implements BlocBase {
@@ -44,8 +45,14 @@ class CardBloc with Validators implements BlocBase {
     void saveCard(){
       final newCard =CardResults(
         cardHolderName: _cardHolderName.value,
-        cardNumber: _cardNumber.value.replaceAll(RegExp(r'\s+\b|\b\s'), '')
-      )
+        cardNumber: _cardNumber.value.replaceAll(RegExp(r'\s+\b|\b\s'), ''),
+        cardMonth: _cardMonth.value,
+        cardYear: _cardYear.value,
+        cardCvv: _cardCvv.value,
+        cardColor: CardColor.baseColor[_cardColorIndexSelected.value],
+        cardType: _cardType.value
+      );
+      cardListBloc.addCardToList(newCard);
     }
 
 
